@@ -1,5 +1,5 @@
 // Guarda la página en el teléfono para que abra rápido y funcione sin internet.
-const CACHE = "alexia-v1";
+const CACHE = "alexia-v2";
 const FILES = [
   "./", "./index.html", "./manifest.json",
   "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png",
@@ -19,6 +19,11 @@ self.addEventListener("fetch", e => {
   if (req.method !== "GET" || req.headers.has("range")) return;          // el video se transmite normal
   const url = new URL(req.url);
   if (url.origin !== location.origin && !url.host.includes("fonts.g")) return;
+  if (req.mode === "navigate" || url.pathname.endsWith("/") || url.pathname.endsWith(".html")){
+    e.respondWith(fetch(req).then(res => { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); return res; })
+      .catch(() => caches.match(req)));
+    return;
+  }
   e.respondWith(
     caches.match(req).then(hit => {
       const net = fetch(req).then(res => {

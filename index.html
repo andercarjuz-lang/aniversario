@@ -113,6 +113,56 @@ section.in .kicker{opacity:1}
   font-family:var(--type);font-size:12px;letter-spacing:.15em;line-height:1.3;mix-blend-mode:multiply}
 .stamp2 b{display:block;font-size:42px;letter-spacing:0;line-height:1;font-weight:400}
 svg{display:block;width:100%;height:auto;overflow:visible}
+.doodle{filter:none!important}
+.doodle path,.doodle circle,.doodle line{fill:none;stroke:#d8cbb6;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s ease calc(var(--d,0s) + .4s)}
+.doodle.ink path,.doodle.ink circle,.doodle.ink line{stroke:#5b4b5f}
+section.in .doodle path,section.in .doodle circle,section.in .doodle line{stroke-dashoffset:0}
+.lpaper{height:var(--h);padding:30px 30px 20px 64px;border-radius:3px;
+  background:repeating-linear-gradient(transparent 0 39px,rgba(120,140,170,.3) 39px 40px) 0 86px/100% 100% no-repeat,linear-gradient(165deg,#f7f2e8,#ebe2d1)}
+.lpaper::before{content:"";position:absolute;left:46px;top:0;bottom:0;width:1px;background:rgba(200,90,90,.35)}
+.lpaper h3{font-family:var(--hand);font-weight:600;font-size:40px;color:var(--ink);line-height:56px}
+.list{list-style:none}
+.list li{font-family:var(--hand);font-size:28px;color:var(--pencil);line-height:40px;display:flex;gap:10px;align-items:center;opacity:0;transform:translateX(-14px);
+  transition:opacity .6s,transform .6s;transition-delay:calc(.7s + var(--i)*.2s)}
+section.in .list li{opacity:1;transform:none}
+.list.hearts li::before{content:"♡";color:var(--violet);font-size:24px}
+.list.checks li{cursor:pointer}
+.list.checks .box{flex:none;width:24px;height:24px;border:2px solid #6d6258;border-radius:3px;position:relative}
+.list.checks .box svg{position:absolute;left:-4px;top:-10px;width:34px}
+.list.checks .box path{fill:none;stroke:var(--violet);stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .5s}
+.list.checks li.done .box path{stroke-dashoffset:0}
+.list.checks li.done span{text-decoration:line-through;text-decoration-color:rgba(123,79,163,.6)}
+.tag{display:inline-block;padding:6px 14px;background:#fbf8f1;font-family:var(--type);font-size:15px;letter-spacing:.14em;color:var(--plum);white-space:nowrap}
+.map{height:var(--h);border-radius:4px;
+  background:repeating-linear-gradient(0deg,rgba(120,100,70,.09) 0 1px,transparent 1px 44px),repeating-linear-gradient(90deg,rgba(120,100,70,.09) 0 1px,transparent 1px 44px),
+  radial-gradient(ellipse at 30% 20%,#f3ead6,#e4d6b9 70%,#d6c5a2)}
+.map .route{position:absolute;inset:0}
+.map .route path{fill:none;stroke:#7b4fa3;stroke-width:3;stroke-dasharray:1;stroke-dashoffset:1;stroke-linecap:round;transition:stroke-dashoffset 3.2s ease .5s}
+section.in .map .route path{stroke-dashoffset:0}
+.pin{position:absolute;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:var(--violet);box-shadow:0 0 0 4px rgba(123,79,163,.25);opacity:0;transform:scale(0);
+  transition:transform .5s cubic-bezier(.2,1.6,.4,1),opacity .3s;transition-delay:var(--pd)}
+.pin::after{content:"";position:absolute;inset:6px;border-radius:50%;background:#fff}
+section.in .pin{opacity:1;transform:none}
+.mini .cap{font-size:20px;bottom:6px}
+.mini{padding:8px 8px 34px}
+.poem{padding:24px 26px 18px}
+.poem cite{display:block;font-style:normal;font-family:var(--type);font-size:11px;letter-spacing:.16em;color:#7b6f60;margin-top:12px}
+.poem.typed{background:#f7f3ea;font-family:var(--type);font-size:18px;line-height:30px;color:#3b332c}
+.poem.handw{background:repeating-linear-gradient(transparent 0 37px,rgba(120,140,170,.3) 37px 38px) 0 18px,#f5f0e5;font-family:var(--hand);font-size:30px;line-height:38px;color:var(--pencil)}
+.poem.book{background:linear-gradient(90deg,#e8dcc2,#f1e7d3 12%,#f1e7d3 88%,#e3d5b8);font-family:var(--serif);font-style:italic;font-size:26px;line-height:34px;color:#3b2f26}
+#garden{cursor:pointer;background:radial-gradient(ellipse at 50% 35%,#211c24 0%,#0c0a0d 60%,#050505 100%)}
+#garden .ground{position:absolute;left:0;right:0;bottom:0;height:16vh;background:linear-gradient(transparent,#151210 60%,#0d0b0a)}
+#garden .gtitle{position:absolute;left:0;right:0;top:calc(64px + env(safe-area-inset-top));text-align:center;pointer-events:none;z-index:3}
+#garden .gtitle .script{color:#efe5d4;font-size:clamp(58px,15vw,84px)}
+#garden .gtitle .hand{color:#b9ae9d;font-size:24px;margin-top:6px}
+#garden .gcount{position:absolute;left:0;right:0;bottom:calc(70px + env(safe-area-inset-bottom));text-align:center;font-family:var(--hand);font-size:24px;color:#d9ccb6;z-index:3;pointer-events:none;transition:opacity .6s}
+.gtulip{position:absolute;bottom:0;width:64px;margin-left:-32px;transform-origin:50% 100%;animation:grow 1.4s cubic-bezier(.2,.9,.3,1) both;pointer-events:none;z-index:2}
+.gtulip svg{height:100%;width:100%}
+.gtulip .head{transform-origin:50% 100%;transform-box:fill-box;animation:pop .7s cubic-bezier(.2,1.6,.4,1) .9s both}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.sparkle{position:absolute;width:6px;height:6px;border-radius:50%;background:#e9d5f7;box-shadow:0 0 10px #c79ce8;pointer-events:none;z-index:3;animation:spark 1.2s ease-out forwards}
+@keyframes spark{to{transform:translate(var(--sx),var(--sy)) scale(0);opacity:0}}
 
 /* ===================== intro sobre ===================== */
 #intro{position:fixed;inset:0;z-index:40;display:grid;place-items:center;text-align:center;background:radial-gradient(ellipse at 50% 45%,#1d1b19 0%,#060606 75%);transition:opacity 1.1s ease,visibility 1.1s}
@@ -271,6 +321,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
         <use href="#heartPath" x="4" y="6" width="112" height="103" fill="none" stroke="#d4cfc4" stroke-width="5"/></svg>
     </div>
   </div>
+  <div class="stage" style="pointer-events:none"><div class="el doodle" style="--x:470px;--y:40px;--w:90px;--d:1s"><svg viewBox="0 0 90 60"><path pathLength="1" d="M20 8 L24 22 L38 24 L26 32 L30 46 L20 38 L10 46 L14 32 L2 24 L16 22Z"/><path pathLength="1" d="M66 30 L68 38 L76 40 L68 42 L66 50 L64 42 L56 40 L64 38Z"/></svg></div></div>
   <div class="hint">desliza <b>↓</b></div>
 </section>
 
@@ -341,9 +392,44 @@ svg{display:block;width:100%;height:auto;overflow:visible}
   <div class="hint">hay más <b>↓</b></div>
 </section>
 
+
+<!-- ============ IV · Cosas que amo de ti ============ -->
+<section id="s6">
+  <div class="kicker">CAPÍTULO IV · COSAS QUE AMO DE TI</div>
+  <div class="stage">
+    <div class="el lpaper" style="--x:35px;--y:60px;--w:510px;--h:560px;--r:-1.5deg;--fy:300px;--fs:.9;--d:0s">
+      <h3>cosas que amo de ti</h3>
+      <ul class="list hearts" style="margin-top:6px">
+        <li style="--i:0">tu apoyo incondicional</li>
+        <li style="--i:1">cómo me sacas adelante</li>
+        <li style="--i:2">que me entiendes (y me aguantas)</li>
+        <li style="--i:3">que me haces mejor persona</li>
+        <li style="--i:4">que siempre me enseñas algo</li>
+        <li style="--i:5">tu deslumbrante belleza</li>
+        <li style="--i:6">que somos un gran equipo</li>
+        <li style="--i:7">…y todo lo demás</li>
+      </ul>
+    </div>
+    <div class="el print tap" style="--x:395px;--y:30px;--w:170px;--r:9deg;--fx:300px;--fr:20deg;--d:.3s">
+      <img src="fotos/pizarron.jpg" style="height:200px" alt="">
+      <div class="tape" style="left:40px;top:-12px;transform:rotate(-6deg)"></div>
+    </div>
+    <div class="el doodle" style="--x:250px;--y:118px;--w:200px;--d:.6s"><svg viewBox="0 0 200 20"><path pathLength="1" d="M4 12 C40 4 80 18 120 9 S180 6 196 12"/></svg></div>
+    <div class="el tag" style="--x:30px;--y:640px;--r:-6deg;--fy:200px;--d:2.2s">LISTA</div>
+    <div class="el tag" style="--x:130px;--y:655px;--r:4deg;--fy:200px;--d:2.3s">HERMOSA</div>
+    <div class="el tag" style="--x:270px;--y:635px;--r:-3deg;--fy:200px;--d:2.4s">INTELIGENTE</div>
+    <div class="el tag" style="--x:440px;--y:650px;--r:7deg;--fy:200px;--d:2.5s">DIOSA</div>
+    <div class="el tag" style="--x:45px;--y:705px;--r:3deg;--fy:200px;--d:2.6s">ESPECTACULAR</div>
+    <div class="el tag" style="--x:230px;--y:715px;--r:-5deg;--fy:200px;--d:2.7s">MARAVILLOSA</div>
+    <div class="el tag" style="--x:410px;--y:705px;--r:4deg;--fy:200px;--d:2.8s">PRECIOSA</div>
+    <div class="el tag" style="--x:120px;--y:765px;--r:-2deg;--fy:200px;--d:2.9s">SORPRENDENTE</div>
+    <div class="el tag" style="--x:330px;--y:770px;--r:5deg;--fy:200px;--d:3s">LINDA</div>
+  </div>
+  <div class="hint" style="bottom:4px">sigue <b>↓</b></div>
+</section>
 <!-- ============ 4 · Recuerdos ============ -->
 <section id="s4">
-  <div class="kicker">CAPÍTULO IV · UN GRAN EQUIPO</div>
+  <div class="kicker">CAPÍTULO V · UN GRAN EQUIPO</div>
   <div class="stage">
     <div class="el print tap" style="--x:55px;--y:70px;--w:255px;--r:-6deg;--fx:-400px;--fr:-20deg;--d:.05s">
       <img src="fotos/abrazo_manta.jpg" style="height:300px" alt="">
@@ -383,9 +469,92 @@ svg{display:block;width:100%;height:auto;overflow:visible}
   <div class="hint">una última cosa <b>↓</b></div>
 </section>
 
+
+<!-- ============ VI · Nuestros lugares ============ -->
+<section id="s7">
+  <div class="kicker">CAPÍTULO VI · NUESTROS LUGARES</div>
+  <div class="stage">
+    <div class="el map" style="--x:30px;--y:60px;--w:540px;--h:700px;--r:1deg;--fs:.9;--fy:120px;--d:0s">
+      <svg class="route" viewBox="0 0 540 700" preserveAspectRatio="none"><path pathLength="1" d="M120 170 C260 140 380 170 400 240 S160 290 140 350 S400 380 410 440 S150 490 130 540 S390 580 400 630"/></svg>
+      <div class="hand" style="position:absolute;left:0;right:0;top:22px;text-align:center;font-size:44px;font-weight:600;color:#3b2f26">nuestros lugares</div>
+      <div class="pin" style="left:120px;top:170px;--pd:.7s"></div><div class="pin" style="left:400px;top:240px;--pd:1.2s"></div>
+      <div class="pin" style="left:140px;top:350px;--pd:1.7s"></div><div class="pin" style="left:410px;top:440px;--pd:2.2s"></div>
+      <div class="pin" style="left:130px;top:540px;--pd:2.7s"></div><div class="pin" style="left:400px;top:630px;--pd:3.2s"></div>
+      <svg class="doodle ink" viewBox="0 0 80 80" style="position:absolute;left:24px;bottom:22px;width:64px"><circle pathLength="1" cx="40" cy="40" r="30"/><path pathLength="1" d="M40 4 L46 40 L40 76 L34 40Z"/><path pathLength="1" d="M4 40 L40 34 L76 40 L40 46Z"/></svg>
+    </div>
+    <div class="el pola mini tap" style="--x:200px;--y:150px;--w:125px;--r:-5deg;--fs:0;--d:.8s"><img src="fotos/restaurante.jpg" style="height:100px" alt=""><div class="cap">nuestra cena</div></div>
+    <div class="el pola mini tap" style="--x:285px;--y:245px;--w:125px;--r:6deg;--fs:0;--d:1.3s"><img src="fotos/feria_mejilla.jpg" style="height:100px" alt=""><div class="cap">la feria</div></div>
+    <div class="el pola mini tap" style="--x:205px;--y:355px;--w:125px;--r:-4deg;--fs:0;--d:1.8s"><img src="fotos/playa.jpg" style="height:100px" alt=""><div class="cap">la playa</div></div>
+    <div class="el pola mini tap" style="--x:290px;--y:445px;--w:125px;--r:5deg;--fs:0;--d:2.3s"><img src="fotos/barco_atardecer.jpg" style="height:100px" alt=""><div class="cap">el barco</div></div>
+    <div class="el pola mini tap" style="--x:205px;--y:545px;--w:125px;--r:-6deg;--fs:0;--d:2.8s"><img src="fotos/nieve.jpg" style="height:100px" alt=""><div class="cap">la nieve</div></div>
+    <div class="el pola mini tap" style="--x:285px;--y:635px;--w:125px;--r:4deg;--fs:0;--d:3.3s"><img src="fotos/bosque.jpg" style="height:100px" alt=""><div class="cap">el bosque</div></div>
+    <div class="el hand" style="--x:300px;--y:772px;--w:270px;--r:-3deg;--d:3.8s;filter:none;font-size:27px;color:#d9ccb6;text-align:right">…y los que faltan →</div>
+  </div>
+  <div class="hint" style="bottom:4px">sigue <b>↓</b></div>
+</section>
+
+<!-- ============ VII · Poemas ============ -->
+<section id="s8">
+  <div class="kicker">CAPÍTULO VII · POEMAS PARA TI</div>
+  <div class="stage">
+    <div class="el poem typed" style="--x:35px;--y:60px;--w:470px;--r:-2deg;--fx:-420px;--fr:-10deg;--d:.1s">
+      Hoy la tierra y los cielos me sonríen;<br>hoy llega al fondo de mi alma el sol;<br>hoy la he visto…, la he visto y me ha mirado…<br>¡Hoy creo en Dios!
+      <cite>GUSTAVO ADOLFO BÉCQUER · RIMA XVII</cite>
+    </div>
+    <div class="el poem handw" style="--x:95px;--y:310px;--w:470px;--r:2deg;--fx:420px;--fr:10deg;--d:.5s">
+      Me gustas cuando callas porque estás como ausente, y me oyes desde lejos, y mi voz no te toca.
+      <cite>PABLO NERUDA · POEMA 15, VEINTE POEMAS DE AMOR</cite>
+    </div>
+    <div class="el poem book" style="--x:40px;--y:555px;--w:450px;--r:-1.5deg;--fy:380px;--d:.9s">
+      «¿Habré de compararte con un día de verano? Tú eres más hermosa y más serena.»
+      <cite>WILLIAM SHAKESPEARE · SONETO 18</cite>
+    </div>
+    <div class="el doodle" style="--x:490px;--y:520px;--w:90px;--r:20deg;--d:1.2s"><svg viewBox="0 0 60 160"><path pathLength="1" d="M30 156 L30 40 C30 20 40 8 52 4 C50 30 44 60 30 90 M30 40 C30 20 20 8 8 4 C10 30 16 60 30 90"/><path pathLength="1" d="M30 60 L44 50 M30 75 L42 66 M30 60 L16 50 M30 75 L18 66"/></svg></div>
+    <div class="el doodle" style="--x:520px;--y:90px;--w:60px;--d:1.4s"><svg viewBox="0 0 60 60"><path pathLength="1" d="M30 52 C10 38 4 26 6 16 C8 8 16 4 22 4 C26 4 29 7 30 10 C31 7 34 4 38 4 C44 4 52 8 54 16 C56 26 50 38 30 52Z"/></svg></div>
+  </div>
+  <div class="hint" style="bottom:4px">sigue <b>↓</b></div>
+</section>
+
+<!-- ============ VIII · Lo que nos falta ============ -->
+<section id="s9">
+  <div class="kicker">CAPÍTULO VIII · LO QUE NOS FALTA</div>
+  <div class="stage">
+    <div class="el lpaper" style="--x:40px;--y:55px;--w:520px;--h:500px;--r:1.5deg;--fy:300px;--fs:.9;--d:0s">
+      <h3>lo que nos falta por vivir</h3>
+      <ul class="list checks" id="bucket" style="margin-top:6px">
+        <li style="--i:0"><div class="box"></div><span>más vidas por recorrer juntos</span></li>
+        <li style="--i:1"><div class="box"></div><span>mil anécdotas más que contar</span></li>
+        <li style="--i:2"><div class="box"></div><span>nuestro próximo viaje</span></li>
+        <li style="--i:3"><div class="box"></div><span>otro atardecer en la playa</span></li>
+        <li style="--i:4"><div class="box"></div><span>volver a la nieve</span></li>
+        <li style="--i:5"><div class="box"></div><span>nuestro 3.er aniversario</span></li>
+        <li style="--i:6"><div class="box"></div><span>todas las aventuras que vengan</span></li>
+        <li style="--i:7"><div class="box"></div><span>el resto de nuestra vida ♡</span></li>
+      </ul>
+    </div>
+    <div class="el pola tap" style="--x:345px;--y:540px;--w:210px;--r:6deg;--fx:300px;--fr:20deg;--d:.6s">
+      <img src="fotos/auto_espejo.jpg" style="height:190px" alt=""><div class="cap">nosotros, siempre</div>
+    </div>
+    <div class="el ticket" style="--x:35px;--y:600px;--w:285px;--h:120px;--r:-5deg;--fx:-300px;--fr:-15deg;--d:.9s">
+      <div class="a"><div class="s">BOLETO DE IDA</div><div class="t">EL FUTURO</div><div class="s">PASAJEROS: 2</div><div class="s">ASIENTO: JUNTO A TI</div></div>
+      <div class="b">SIN REGRESO</div>
+    </div>
+    <div class="el hand" style="--x:40px;--y:740px;--w:270px;--d:2.6s;filter:none;font-size:21px;color:#a99d8a">(toca cada una para tacharla cuando la vivamos)</div>
+  </div>
+  <div class="hint" style="bottom:4px">sigue <b>↓</b></div>
+</section>
+
+<!-- ============ IX · Un jardín para ti ============ -->
+<section id="garden">
+  <div class="kicker">CAPÍTULO IX · UN JARDÍN PARA TI</div>
+  <div class="gtitle"><div class="script">un jardín para ti</div><div class="hand">toca la pantalla para plantar tulipanes</div></div>
+  <div class="ground"></div>
+  <div class="gcount" id="gcount"></div>
+  <div class="hint" style="bottom:4px">cuando quieras, sigue <b>↓</b></div>
+</section>
 <!-- ============ 5 · Final ============ -->
 <section id="s5">
-  <div class="kicker">CAPÍTULO V · PARA SIEMPRE</div>
+  <div class="kicker">CAPÍTULO X · PARA SIEMPRE</div>
   <div class="stage">
     <div class="el quote" style="--x:25px;--y:55px;--w:360px;--r:-2deg;--fy:-380px;--fr:-8deg;--d:.8s">
       «El amor no cambia con sus breves horas y semanas: perdura hasta el borde del fin.»<cite>WILLIAM SHAKESPEARE · SONETO 116</cite>
@@ -466,7 +635,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 // Canciones. Pega el link de Spotify de cada una (⋯ → Compartir → Copiar enlace de la canción).
 // Con link, la canción suena dentro de la página; sin link, el botón abre Spotify.
 const SONGS = [
-  { titulo: "Congratulations", artista: "MAC MILLER · FT. BILAL", spotify: "" },
+  { titulo: "Congratulations", artista: "MAC MILLER · FT. BILAL", spotify: "https://open.spotify.com/track/1OubIZ0ARYCUq5kceYUQiO" },
   { titulo: "¿Hasta dónde te quiero?", artista: "RONDALLA DE SALTILLO", spotify: "https://open.spotify.com/track/1licjid99qj1BFIYGb3wZC" }
 ];
 
@@ -556,6 +725,50 @@ document.addEventListener("click", e => {
 document.querySelectorAll(".modal").forEach(m => m.addEventListener("click", e => {
   if (e.target === m || e.target.hasAttribute("data-close")){ m.classList.remove("open"); const v = m.querySelector("video"); if (v) v.pause(); }
 }));
+
+/* lista de lo que nos falta: tachar */
+document.querySelectorAll("#bucket li").forEach(li => {
+  li.querySelector(".box").innerHTML = '<svg viewBox="0 0 34 34"><path pathLength="1" d="M4 18 L13 27 L31 4"/></svg>';
+  li.addEventListener("click", () => li.classList.toggle("done"));
+});
+
+/* jardín de tulipanes */
+const garden = $("garden"); let planted = 0, autoDone = false;
+const TCOL = [["#6b3d84","#8a58ab"],["#7b4fa3","#9b6fc4"],["#5b2d6e","#7b4fa3"],["#9468b8","#b98fd8"],["#c08ad8","#d9b8ea"]];
+function plant(px, py){
+  const r = garden.getBoundingClientRect();
+  const x = px + r.left, y = py + r.top;
+  const h = Math.max(110, r.height - py);
+  const [a,b] = TCOL[Math.floor(Math.random()*TCOL.length)];
+  const t = document.createElement("div"); t.className = "gtulip";
+  t.style.left = (x - r.left) + "px"; t.style.height = h + "px";
+  const lean = (Math.random() - .5) * 18;
+  t.innerHTML = `<svg viewBox="0 0 64 ${h}" preserveAspectRatio="none" style="overflow:visible">
+    <path d="M32 ${h} C${32+lean/2} ${h*.6} ${32-lean/3} ${h*.3} ${32+lean} 40" stroke="#6f7f5c" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M32 ${h-20} C10 ${h-40} 4 ${h-80} 8 ${h-110} C22 ${h-90} 30 ${h-60} 32 ${h-20}Z" fill="#7d8c67" opacity="${h > 160 ? .9 : 0}"/>
+    <g class="head" transform="translate(${lean} 0)">
+      <path d="M32 0 C44 10 48 28 43 46 C39 50 25 50 21 46 C16 28 20 10 32 0Z" fill="${a}"/>
+      <path d="M16 12 C13 28 17 42 28 50 C34 44 34 26 29 17 C25 13 20 11 16 12Z" fill="${b}"/>
+      <path d="M48 12 C51 28 47 42 36 50 C30 44 30 26 35 17 C39 13 44 11 48 12Z" fill="${b}"/>
+    </g></svg>`;
+  garden.append(t);
+  for (let i = 0; i < 8; i++){
+    const s = document.createElement("div"); s.className = "sparkle";
+    s.style.cssText = `left:${x - r.left}px;top:${y - r.top}px;--sx:${(Math.random()-.5)*90}px;--sy:${(Math.random()-.5)*90}px`;
+    garden.append(s); setTimeout(() => s.remove(), 1300);
+  }
+  planted++;
+  $("gcount").textContent = planted < 6 ? "🌷 ".repeat(Math.min(planted,5)).trim()
+    : planted < 15 ? "uno por cada vez que pienso en ti…" : "…ya perdí la cuenta ♡";
+}
+garden.addEventListener("click", e => { const r = garden.getBoundingClientRect(); plant(e.clientX - r.left, e.clientY - r.top); });
+new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting && !autoDone){ autoDone = true;
+    [.16,.38,.62,.84].forEach((f,i) => setTimeout(() => { const W = garden.clientWidth, H = garden.clientHeight;
+      plant(W*f, H*(.5 + Math.random()*.14)); }, 500 + i*350));
+    setTimeout(() => { planted = 0; $("gcount").textContent = ""; }, 2000);
+  }
+}), {threshold:.6}).observe(garden);
 
 /* instalar como app */
 let deferred = null;
